@@ -5,11 +5,18 @@ document.addEventListener('DOMContentLoaded', function(){
       td.addEventListener('click', function () {
         
         if (this.innerHTML == "="){
-          document.getElementById("solution").innerHTML = 
+          try {
+            document.getElementById("solution").innerHTML = 
             eval(solution);
+          }
+          catch(err) {
+            console.log(err.message);
+            document.getElementById("solution").innerHTML = "Give proper values";
+          }
+          
         } else if (this.innerHTML == "C"){
           document.getElementById("operation").innerHTML = "";
-          solution = "0"
+          solution = ""
           document.getElementById("solution").innerHTML = 0
         } else{
           
